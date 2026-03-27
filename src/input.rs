@@ -34,6 +34,8 @@ pub fn create_trains() -> HashMap<usize, Train> {
             wagons: wagons,
             position: 0,
             currLane: from,
+            cooldown: 10,
+            timer: 0,
         };
 
         train_map.insert(i, temp_train);

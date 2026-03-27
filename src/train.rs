@@ -7,8 +7,11 @@ pub struct Train{
     pub eta: i32,
     pub wagons : i32,
 
-    pub currLane:i32,
-    pub position:i32,
+    pub currLane: i32,
+    pub position: i32,
+
+    pub cooldown: i32,
+    pub timer: i32
 }
 
 impl Train {

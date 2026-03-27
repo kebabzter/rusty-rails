@@ -1,19 +1,13 @@
 use std::io::{self, Write};
-use crate::train::Train;
 
-pub fn draw(){
-    const ROW : usize = 60;
-    const COL : usize = 7;
-
-    let mut track: Vec<Vec<String>> = vec![vec!["=".to_string(); ROW]; COL];
-
-    for (i, lane) in track.iter().enumerate() {
-        print!("Lane {:02} [", i);
-
-        for segment in lane {
-            print!("{}", segment);
+pub fn draw(track: &Vec<Vec<String>>){
+    clearscreen::clear().expect("failed to clear screen");
+    for row in track {
+        print!("{}", "Lane [ ");
+        for cell in row {
+            print!("{}", cell)
         }
-        println!("]");
+        println!(" ]");
     }
 }
 
