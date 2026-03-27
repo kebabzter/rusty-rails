@@ -5,4 +5,5 @@ edition = "2024"
 
 [dependencies]
 clearscreen = "4.0.6"
+colored = "3.1.1"
 text_io = "0.1.13"

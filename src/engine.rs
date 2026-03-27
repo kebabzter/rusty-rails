@@ -31,9 +31,12 @@ pub fn run(mut trains_map: HashMap<usize, Train>, mut track: Vec<Vec<String>>) {
 
                         let switch_direction = if train.from <= train.to {1} else {-1};
 
+                        // checks if the tail of the train is still inside the switch area 
+                        // and returns the appropriate symbol for replacement based on that
                         let symbol = 
                         if train.position - train.wagons >= (track[0].len() / 2) - (track.len() / 2)
                         && train.position - train.wagons < (track[0].len() / 2) + (track.len() / 2) {
+                            // if the train is still in the switch it fixes the x-s behind the tail
                             let mut i: i32 = train.from as i32;
                             while i != train.currLane as i32{
                                 if track[i as usize][train.position - train.wagons] == "#"{
@@ -47,12 +50,15 @@ pub fn run(mut trains_map: HashMap<usize, Train>, mut track: Vec<Vec<String>>) {
                         };
 
 
+                        //draws the replacement symbol behind the lane
                         track[train.currLane][train.position - train.wagons] = symbol.to_string();
 
+                        // deletes the tail from the lane the train came from
                         if track[train.from][train.position - train.wagons] == "#"{
                             track[train.from][train.position - train.wagons] = symbol.to_string();
                         }
                     }
+                    // makes sure that app does not crash when train head exits the perimeter
                     if train.position + 1 < track[0].len(){
                         if track[train.currLane][train.position] == "x" && train.currLane != train.to{
                             switch(train);

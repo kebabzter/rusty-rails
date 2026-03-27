@@ -1,4 +1,5 @@
 use std::io::{self, Write};
+use colored::*;
 
 pub fn draw(track: &Vec<Vec<String>>){
     clearscreen::clear().expect("failed to clear screen");
@@ -20,8 +21,8 @@ pub fn print_start() {
 ██╔══██╗██║   ██║╚════██║   ██║     ╚██╔╝ ╚════╝██╔══██╗██╔══██║██║██║     ╚════██║
 ██║  ██║╚██████╔╝███████║   ██║      ██║        ██║  ██║██║  ██║██║███████╗███████║
 ╚═╝  ╚═╝ ╚═════╝ ╚══════╝   ╚═╝      ╚═╝        ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝╚══════╝╚══════╝"#;
-    println!("{}", logo);
-    print!("Press [ENTER] to start simulation...");
+    println!("{}", logo.truecolor(235, 146, 115));
+    print!("{}", "Press [ENTER] to start simulation...".truecolor(235, 146, 115));
     io::stdout().flush().unwrap();
     let mut _pause = String::new();
     io::stdin().read_line(&mut _pause).unwrap();
