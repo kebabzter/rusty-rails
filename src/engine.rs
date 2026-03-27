@@ -6,15 +6,12 @@ use std::{
     time::{Duration, Instant},
 };
 
-pub fn switch(train: &mut Train, track: &Vec<Vec<String>>) {
-
-    if track[train.currLane][train.position] == "x" {
+pub fn switch(train: &mut Train) {
         if train.from > train.to {
             train.currLane -= 1;
         } else {
             train.currLane += 1;
         }
-    }
 }
 
 pub fn run(mut trains_map: HashMap<usize, Train>, mut track: Vec<Vec<String>>) {
@@ -29,13 +26,16 @@ pub fn run(mut trains_map: HashMap<usize, Train>, mut track: Vec<Vec<String>>) {
             train.timer += 1 * train.speed;
 
             if train.timer >= train.cooldown {
-                if (train.currLane != train.to) {
-                    switch(train, &track);
-                }
                 if train.position as i32 - train.wagons as i32 >= 0 {
                     track[train.currLane][train.position - train.wagons] = "=".to_string();
+                    if track[train.from][train.position - train.wagons] == "#"{
+                        track[train.from][train.position - train.wagons] = "=".to_string();
+                    }
                 }
-                track[train.currLane as usize][train.position as usize] = "#".to_string();
+                if track[train.currLane][train.position] == "x" && train.currLane != train.to{
+                    switch(train);
+                }
+                track[train.currLane][train.position] = "#".to_string();
                 train.train_update();
                 train.timer = 0;
             }
