@@ -30,10 +30,12 @@ pub fn run(mut trains_map: HashMap<usize, Train>, mut track: Vec<Vec<String>>) {
                     if train.position as i32 - train.wagons as i32 >= 0 {
 
                         let switch_direction = if train.from <= train.to {1} else {-1};
-                        let symbol = if train.position - train.wagons >= (track[0].len() / 2) - (track.len() / 2)
+
+                        let symbol = 
+                        if train.position - train.wagons >= (track[0].len() / 2) - (track.len() / 2)
                         && train.position - train.wagons < (track[0].len() / 2) + (track.len() / 2) {
                             let mut i: i32 = train.from as i32;
-                            while i > train.currLane as i32{
+                            while i != train.currLane as i32{
                                 if track[i as usize][train.position - train.wagons] == "#"{
                                     track[i as usize][train.position - train.wagons] = "x".to_string();
                                 }
