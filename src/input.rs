@@ -19,11 +19,11 @@ pub fn create_trains() -> HashMap<usize, Train> {
 
     while i < num_trains {
         let dir: String = read!();
-        let from: i32 = read!();
-        let to: i32 = read!();
-        let speed: i32 = read!();
-        let eta: i32 = read!();
-        let wagons: i32 = read!();
+        let from = read!();
+        let to = read!();
+        let speed = read!();
+        let eta = read!();
+        let wagons = read!();
 
         let temp_train: Train = Train {
             direction: dir,

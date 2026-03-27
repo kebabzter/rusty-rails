@@ -1,17 +1,17 @@
 #[derive(Debug)]
 pub struct Train{
     pub direction: String,
-    pub from: i32,
-    pub to: i32,
-    pub speed: i32,
-    pub eta: i32,
-    pub wagons : i32,
+    pub from: usize,
+    pub to: usize,
+    pub speed: usize,
+    pub eta: usize,
+    pub wagons : usize,
 
-    pub currLane: i32,
-    pub position: i32,
+    pub currLane: usize,
+    pub position: usize,
 
-    pub cooldown: i32,
-    pub timer: i32
+    pub cooldown: usize,
+    pub timer: usize,
 }
 
 impl Train {
