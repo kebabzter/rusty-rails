@@ -45,3 +45,35 @@ pub fn create_trains() -> HashMap<usize, Train> {
     clearscreen::clear().expect("failed to clear screen");
     return train_map;
 }
+
+pub fn premade_train() -> HashMap<usize, Train> {
+    let mut train_map: HashMap<usize, Train> = HashMap::new();
+    
+    train_map.insert(0, Train {
+        direction: "l".to_string(),
+        from: 0,
+        to: 4,
+        speed: 2,
+        eta: 20,
+        wagons: 6,
+        position: 0,
+        currLane: 0,
+        cooldown: 10,
+        timer: 0,
+    });
+
+    train_map.insert(1, Train {
+        direction: "l".to_string(),
+        from: 6,
+        to: 3,
+        speed: 3,
+        eta: 20,
+        wagons: 6,
+        position: 0,
+        currLane: 6,
+        cooldown: 10,
+        timer: 0,
+    });
+
+    return train_map;
+}

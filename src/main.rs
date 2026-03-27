@@ -6,9 +6,10 @@ mod train;
 mod engine;
 
 use display::{draw, print_start};
-use input::create_trains;
+use input::{create_trains, premade_train};
 use train::Train;
 
+use text_io::read;
 use crate::engine::run;
 
 fn main() {
@@ -26,8 +27,15 @@ fn main() {
         }
     }
 
-    println!("Please enter how many trains will run in this simulation:");
-
-    let train_map: HashMap<usize, Train> = create_trains();
+    println!("Would you like to run premade or a custom simulation? [P]remade/[C]ustom");
+    let decision: String = read!();
+    let train_map: HashMap<usize, Train> = 
+    if decision == "P"{
+        premade_train()
+    } else {
+        println!("Please enter how many trains will run in this simulation:");
+        create_trains()
+    };
     run(train_map, track);
+
 }
