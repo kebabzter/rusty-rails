@@ -1,0 +1,6 @@
+# Block all build artifacts
+/target/
+
+# Optional: Block swap files or IDE-specific configs
+**/*.rs.bk
+Cargo.lock
