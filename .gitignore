@@ -1,5 +1,6 @@
 # Block all build artifacts
-/target/
+debug
+target
 
 # Optional: Block swap files or IDE-specific configs
 **/*.rs.bk
