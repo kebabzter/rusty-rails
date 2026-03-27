@@ -27,10 +27,27 @@ pub fn run(mut trains_map: HashMap<usize, Train>, mut track: Vec<Vec<String>>) {
 
             if train.timer >= train.cooldown {
                 if train.position as i32 - train.wagons as i32 >= 0 {
-                    track[train.currLane][train.position - train.wagons] = "=".to_string();
-                    if track[train.from][train.position - train.wagons] == "#"{
-                        track[train.from][train.position - train.wagons] = "=".to_string();
+
+                    let mut symbol = "";
+                    if train.position - train.wagons >= (track[0].len() / 2) - (track.len() / 2)
+                    && train.position - train.wagons < (track[0].len() / 2) + (track.len() / 2) {
+                        symbol = "x";
+                    }else {
+                        symbol = "=";
                     }
+
+                    track[train.currLane][train.position - train.wagons] = symbol.to_string();
+
+                    if track[train.from][train.position - train.wagons] == "#"{
+                        track[train.from][train.position - train.wagons] = symbol.to_string();
+                    }
+                    
+                    // if track[train.currLane][train.position - train.wagons] == "x"
+                    // for i in train.from..train.to{
+                    //     if track[i][train.position - train.wagons] == "#"{
+                    //     }
+                    // }
+
                 }
                 if track[train.currLane][train.position] == "x" && train.currLane != train.to{
                     switch(train);
