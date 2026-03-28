@@ -1,0 +1,7 @@
+[target.x86_64-pc-windows-gnu]
+image = "ghcr.io/cross-rs/x86_64-pc-windows-gnu:latest"
+
+[build]
+# This tells cross to not try and be "smart" with your local rustc
+# and just use the one inside the Docker container.
+pre-build = []
