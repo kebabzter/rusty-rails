@@ -53,7 +53,7 @@ pub fn premade_train() -> HashMap<usize, Train> {
         direction: "l".to_string(),
         from: 0,
         to: 4,
-        speed: 2,
+        speed: 1,
         eta: 20,
         wagons: 6,
         position: 0,
@@ -65,8 +65,8 @@ pub fn premade_train() -> HashMap<usize, Train> {
     train_map.insert(1, Train {
         direction: "l".to_string(),
         from: 6,
-        to: 3,
-        speed: 3,
+        to: 1,
+        speed: 1,
         eta: 20,
         wagons: 6,
         position: 0,
@@ -75,5 +75,17 @@ pub fn premade_train() -> HashMap<usize, Train> {
         timer: 0,
     });
 
+    train_map.insert(2, Train {
+        direction: "l".to_string(),
+        from: 1,
+        to: 5,
+        speed: 1,
+        eta: 20,
+        wagons: 6,
+        position: 0,
+        currLane: 1,
+        cooldown: 10,
+        timer: 0,
+    });
     return train_map;
 }

@@ -1,3 +1,5 @@
+use colored::Colorize;
+
 use crate::display::draw;
 use crate::train::Train;
 use std::{
@@ -22,7 +24,7 @@ pub fn run(mut trains_map: HashMap<usize, Train>, mut track: Vec<Vec<String>>) {
         let start_time = Instant::now();
 
         // --- 1. UPDATE ---
-        for (_, train) in &mut trains_map {
+        for (id, train) in &mut trains_map {
             train.timer += 1 * train.speed;
 
             if (train.position as i32 - train.wagons as i32) < track[0].len() as i32{
@@ -39,7 +41,7 @@ pub fn run(mut trains_map: HashMap<usize, Train>, mut track: Vec<Vec<String>>) {
                             // if the train is still in the switch it fixes the x-s behind the tail
                             let mut i: i32 = train.from as i32;
                             while i != train.currLane as i32{
-                                if track[i as usize][train.position - train.wagons] == "#"{
+                                if track[i as usize][train.position - train.wagons].contains("#"){
                                     track[i as usize][train.position - train.wagons] = "x".to_string();
                                 }
                                 i += 1 * switch_direction;
@@ -54,7 +56,7 @@ pub fn run(mut trains_map: HashMap<usize, Train>, mut track: Vec<Vec<String>>) {
                         track[train.currLane][train.position - train.wagons] = symbol.to_string();
 
                         // deletes the tail from the lane the train came from
-                        if track[train.from][train.position - train.wagons] == "#"{
+                        if track[train.from][train.position - train.wagons].contains("#"){
                             track[train.from][train.position - train.wagons] = symbol.to_string();
                         }
                     }
@@ -63,7 +65,7 @@ pub fn run(mut trains_map: HashMap<usize, Train>, mut track: Vec<Vec<String>>) {
                         if track[train.currLane][train.position] == "x" && train.currLane != train.to{
                             switch(train);
                         }
-                        track[train.currLane][train.position] = "#".to_string();
+                        track[train.currLane][train.position] = "#".truecolor((60 * (id+1)) as u8,(60 * (id+1)) as u8 , (60 * (id)) as u8).to_string();
                     }
                     train.train_update();
                     train.timer = 0;
