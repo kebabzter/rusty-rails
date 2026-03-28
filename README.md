@@ -16,10 +16,17 @@ automation can be used to direct multiple trains to the correct "lane" without h
 
 The project is built using 100% rust and **INSANE** programming skills. *(the code quality is questionable to be honest)*
 
+**WORKS ONLY ON UNIX BASED MACHINES (or wsl) BECAUSE WINDOWS DOESN'T LIKE ANSII AND SUCKS IN GENERAL :D**
+Plans for better releases are in place however since this is just a for fun project they are not really a priority right now :D
+
 ## How-to:
 
-Currently the way the project is run is by using `cargo run main.rs`
-We plan on compiling an executable file for the future *(as of writing this readme it is is too late and I am too lazy to do it right now)*
+Currently the way the project can be run is either by cloning the repo and running `cargo run main.rs`
+or by using this oneliner to download the latest release and make it executable.
+
+```
+curl -L https://github.com/kebabzter/rusty-rails/releases/download/v1.0.0/rusty-rails-linux-x86_64 -o rusty-rails-linux-x86_64 && chmod +x rusty-rails-linux-x86_64 && ./rusty-rails-linux-x86_64
+```
 
 Once the application is running you are greeted!
 
