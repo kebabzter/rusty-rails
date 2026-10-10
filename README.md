@@ -19,6 +19,7 @@ The project is built using 100% rust and **INSANE** programming skills. *(the co
 **WORKS ONLY ON UNIX BASED MACHINES (or wsl) BECAUSE WINDOWS DOESN'T LIKE ANSII AND SUCKS IN GENERAL :D**
 Plans for better releases are in place however since this is just a for fun project they are not really a priority right now :D
 
+![hippo](https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExeDJraWcxNWpzcXF4a2s0a2lweXF0cGs4czFncTg3eHhjYmpxdzlydyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/uJ3i0DXsD6IfXrhFs2/giphy.gif)
 ## How-to:
 
 Currently the way the project can be run is either by cloning the repo and running `cargo run main.rs`
